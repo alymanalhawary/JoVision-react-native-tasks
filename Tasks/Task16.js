@@ -1,10 +1,17 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
 
 const Task16 = () => {
+  const [showName, setShowName] = useState(false);
+
+  const onButtonPress = () => {
+    setShowName(!showName);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>This is Task 16</Text>
+      <Button title="Show" onPress={onButtonPress} />
+      {showName && <Text style={styles.text}>Alyaman Alhawary</Text>}
     </View>
   );
 };
@@ -16,6 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
+    marginTop: 20,
     fontSize: 22,
   },
 });
